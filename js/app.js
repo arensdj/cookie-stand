@@ -1,6 +1,6 @@
 'use strict';
 
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var storeLocations = ['1st And Pike', 'SeaTac Airport', 'Seattle Center', 'Capital Hill', 'Alki'];
 var storeIndex = 0;
 
@@ -11,7 +11,7 @@ var firstAndPike = {
   cookiesPurchasedPerHour: [],
   totalCookiesSold: 0,
   calculateCookiesPerHour: function() {
-    for(var i = 0; i < hours.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
@@ -25,9 +25,9 @@ var firstAndPike = {
     var ulElement = document.getElementById('1st-And-Pike');
     ulElement.textContent = storeLocations[storeIndex];
 
-    for(var i = 0; i < this.cookiesPurchasedPerHour.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var liElement = document.createElement('li');
-      liElement.textContent = hours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
+      liElement.textContent = storeHours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
 
@@ -47,7 +47,7 @@ var seaTacAirport = {
   cookiesPurchasedPerHour: [],
   totalCookiesSold: 0,
   calculateCookiesPerHour: function() {
-    for(var i = 0; i < hours.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
@@ -61,9 +61,9 @@ var seaTacAirport = {
     var ulElement = document.getElementById('SeaTac-Airport');
     ulElement.textContent = storeLocations[storeIndex];
 
-    for(var i = 0; i < this.cookiesPurchasedPerHour.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var liElement = document.createElement('li');
-      liElement.textContent = hours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
+      liElement.textContent = storeHours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
 
@@ -83,7 +83,7 @@ var seattleCenter = {
   cookiesPurchasedPerHour: [],
   totalCookiesSold: 0,
   calculateCookiesPerHour: function() {
-    for(var i = 0; i < hours.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
@@ -97,9 +97,9 @@ var seattleCenter = {
     var ulElement = document.getElementById('Seattle-Center');
     ulElement.textContent = storeLocations[storeIndex];
 
-    for(var i = 0; i < this.cookiesPurchasedPerHour.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var liElement = document.createElement('li');
-      liElement.textContent = hours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
+      liElement.textContent = storeHours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
 
@@ -119,7 +119,7 @@ var capitalHill = {
   cookiesPurchasedPerHour: [],
   totalCookiesSold: 0,
   calculateCookiesPerHour: function() {
-    for(var i = 0; i < hours.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
@@ -133,9 +133,9 @@ var capitalHill = {
     var ulElement = document.getElementById('Capital-Hill');
     ulElement.textContent = storeLocations[storeIndex];
 
-    for(var i = 0; i < this.cookiesPurchasedPerHour.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var liElement = document.createElement('li');
-      liElement.textContent = hours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
+      liElement.textContent = storeHours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
 
@@ -155,7 +155,7 @@ var alki = {
   cookiesPurchasedPerHour: [],
   totalCookiesSold: 0,
   calculateCookiesPerHour: function() {
-    for(var i = 0; i < hours.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
@@ -169,9 +169,9 @@ var alki = {
     var ulElement = document.getElementById('Alki');
     ulElement.textContent = storeLocations[storeIndex];
 
-    for(var i = 0; i < this.cookiesPurchasedPerHour.length; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       var liElement = document.createElement('li');
-      liElement.textContent = hours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
+      liElement.textContent = storeHours[i] + ': ' + this.cookiesPurchasedPerHour[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
 
