@@ -1,20 +1,93 @@
-
+body {
+  background-color: lightgoldenrodyellow;
+}
+h1 {
+  color: brown;
+}
+h2 {
+  color: brown;
+}
+h3 {
+  margin-left: 5px;
+}
+h3 p {
+  margin-left: 5px;
+}
+.main-title {
+  font-family: 'Corben', cursive;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 5px;
+  background-color: lightsalmon;
+  /* position: relative; */
+  /* padding-left: 250px; */
+  /* margin-left: 50px; */
+}
+p {
+  font-size: 20px;
+  /* margin-top: 50px; */
+  padding-top: 5px;
+  margin-left: 200px;
+  margin-right: 200px;
+  /* border: 2px solid purple; */
+}
 ol {
   list-style: decimal;
   padding-top: 10px;
   font-size: 20px;
+  font-family: Arial;
 }
 ul {
   list-style: circle;
+  font-family: Verdana;
   font-size: 20px;
   margin-bottom: 15px;
   padding-bottom: 10px;
   /* border: 2px solid green; */
 }
 li {
+  font-family: Verdana;
   padding-top: 2px;
   padding-left: 1px;
   padding-bottom: 2px;
   margin-left: 35px;
   /* border: 2px dotted brown; */
+}
+img {
+  margin-left: 300px;
+}
+.profile-img {
+  height: 200px;
+  width: 300px;
+  float: left;
+  padding-right: 50px;
+  margin-right: 30px;
+  overflow: auto;
+}
+footer {
+  margin-left: 400px;
+ 
+  /* border: 2px solid purple  */
+}
+.hours, .locations {
+  margin-left: 5px;
+  margin-top: 5px;
+  font-family: Verdana;
+}
+.ul-location {
+  list-style: square;
+  font-size: 20px;
+  /* margin-left: 5px; */
+}
+.ul-location li{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.story {
+  font-family: 'Allura', cursive;
+  font-size: 50px;
+  font-weight: bold;
+  /* border: 2px solid pink; */
+  margin-bottom: 1px;
+  color: brown;
 }

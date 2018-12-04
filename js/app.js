@@ -184,27 +184,27 @@ var alki = {
   }
 };
 
-firstAndPike.calculateCookiesPerHour(storeLocations[storeIndex]);
-firstAndPike.calculateTotalCookiesSold(storeLocations[storeIndex]);
-firstAndPike.displayOutput(storeLocations[storeIndex]);
+firstAndPike.calculateCookiesPerHour();
+firstAndPike.calculateTotalCookiesSold();
+firstAndPike.displayOutput();
 
 // Increment index used to access global arrays
 storeIndex++; 
-seaTacAirport.calculateCookiesPerHour(storeLocations[storeIndex]);
-seaTacAirport.calculateTotalCookiesSold(storeLocations[storeIndex]);
-seaTacAirport.displayOutput(storeLocations[storeIndex]);
+seaTacAirport.calculateCookiesPerHour();
+seaTacAirport.calculateTotalCookiesSold();
+seaTacAirport.displayOutput();
 
 storeIndex++;
-seattleCenter.calculateCookiesPerHour(storeLocations[storeIndex]);
-seattleCenter.calculateTotalCookiesSold(storeLocations[storeIndex]);
-seattleCenter.displayOutput(storeLocations[storeIndex]);
+seattleCenter.calculateCookiesPerHour();
+seattleCenter.calculateTotalCookiesSold();
+seattleCenter.displayOutput();
 
 storeIndex++;
-capitalHill.calculateCookiesPerHour(storeLocations[storeIndex]);
-capitalHill.calculateTotalCookiesSold(storeLocations[storeIndex]);
-capitalHill.displayOutput(storeLocations[storeIndex]);
+capitalHill.calculateCookiesPerHour();
+capitalHill.calculateTotalCookiesSold();
+capitalHill.displayOutput();
 
 storeIndex++;
-alki.calculateCookiesPerHour(storeLocations[storeIndex]);
-alki.calculateTotalCookiesSold(storeLocations[storeIndex]);
-alki.displayOutput(storeLocations[storeIndex]);
+alki.calculateCookiesPerHour();
+alki.calculateTotalCookiesSold();
+alki.displayOutput();
