@@ -91,3 +91,7 @@ footer {
   margin-bottom: 1px;
   color: brown;
 }
+img {
+  display: block;
+  margin: 0 auto;
+}
