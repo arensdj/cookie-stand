@@ -5,6 +5,7 @@ var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', 
 
 // The sales table on html
 var salesTable = document.getElementById('sales-table');
+var salesForm = document.getElementById('sales-form');
 
 // Array that contains all of the Store objects 
 // Store.allStores = [];
@@ -115,6 +116,29 @@ Store.generateHourlyTotals = function () {
   trEl.appendChild(tdEl);
 };
 
+Store.addNewStore = function(event) {
+  event.preventDefault();
+
+  var newName = event.target.storename.value;
+  var newMinCust = event.target.storemincust.value;
+  var newMaxCust = event.target.storemaxcust.value;
+  var newAvgCookieSale = event.target.storeavgcookiesale.value;
+
+  var newStore = new Store(newName, newMinCust, newMaxCust, newAvgCookieSale);
+  newStore.calculateCookiesPerHour();
+  newStore.calculateTotalCookiesSold();
+  allStores.push(newStore);
+
+  salesTable.textContent = '';
+  Store.renderHeader();
+
+  for(var i = 0; i < allStores.length; i++) {
+    allStores[i].renderTable();
+  }
+  Store.generateHourlyTotals();
+};
+
+
 var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
 firstAndPike.calculateCookiesPerHour();
 firstAndPike.calculateTotalCookiesSold();
@@ -148,3 +172,5 @@ seattleCenter.renderTable();
 capitalHill.renderTable();
 alki.renderTable();
 Store.generateHourlyTotals();
+
+salesForm.addEventListener('submit', Store.addNewStore);

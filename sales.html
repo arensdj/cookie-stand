@@ -7,7 +7,27 @@
   </header>
   <body>
     <h1>Salmon Cookie Stand Sales</h1>
-    <table id="sales-table"></table>    
+    <form id="sales-form">
+      <fieldset>
+        <legend>Add a new store</legend>
+
+          <label for="name">Name</label>
+          <input id="name" type="text" name="storename" required/>
+
+          <label for="mincust">Minimum Customers</label>
+          <input id="mincust" type="number" name="storemincust" required/>
+
+          <label for="maxcust">Maximum Customers</label>
+          <input id="maxcust" type="number" name="storemaxcust" required/>
+
+          <label for="avgcookiesale">Average Cookie Sale</label>
+          <input id="avgcookiesale" type="number" name="storeavgcookiesale" required/>
+
+          <button>Add a Store</button>        
+        </fieldset> 
+    </form>
+
+    <table id="sales-table"></table>
     <script src="js/app.js"></script>
   </body>
 </html>
