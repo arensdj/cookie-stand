@@ -116,12 +116,14 @@ table, th, td {
   border: 1px solid black;
 }
 th {
+  font-family: Georgia;
+  color: black;
   padding-left: 10px;
+  padding-right: 5px;
   height: 25px;
   text-align: center;
   background-color: rgb(240, 220, 191);
-  color: black;
-  font-family: Georgia;
+
 }
 td {
   text-align: center;
