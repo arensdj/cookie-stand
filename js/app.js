@@ -150,15 +150,3 @@ allStores.push(alki);
 alki.renderTable();
 
 Store.generateHourlyTotals();
-
-// Store.generateTable();
-
-// firstAndPike.renderTable();
-// seaTacAirport.renderTable();
-
-// console.log(firstAndPike.cookiesPurchasedPerHour);
-// console.log(firstAndPike.totalCookiesSold);
-// console.log(allStores);
-
-// var randomCustNumber = firstPike.generateRandNumCustomers();
-// console.log(randomCustNumber);
