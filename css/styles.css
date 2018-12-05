@@ -31,6 +31,8 @@ p {
 img {
   display: block;
   margin: 0 auto;
+  height: 100px;
+  width: 300px;
 }
 .profile-img {
   height: 200px;
@@ -93,6 +95,7 @@ footer {
   font-family: Arial;
   font-size: 15px;
   padding: 15px 15px;
+  /* height: 100px; */
 }
 .hours, .locations {
   font-family: Verdana;
