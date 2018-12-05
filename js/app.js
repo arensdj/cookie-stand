@@ -8,8 +8,7 @@ var salesTable = document.getElementById('sales-table');
 var salesForm = document.getElementById('sales-form');
 
 // Array that contains all of the Store objects 
-// Store.allStores = [];
-var allStores = [];
+Store.allStores = [];
 
 // Definition of the Store object constructor
 function Store(name, minCust, maxCust, avgCookieSale) {
@@ -19,7 +18,7 @@ function Store(name, minCust, maxCust, avgCookieSale) {
   this.avgCookieSale = avgCookieSale;
   this.cookiesPurchasedPerHour = [];
   this.totalCookiesSold = 0;
-  // Store.allStores.push(this);
+  Store.allStores.push(this);
   this.generateRandNumCustomers = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
   };
@@ -95,8 +94,8 @@ Store.generateHourlyTotals = function () {
   // Calculate the total number of cookies per hour for each store and
   // save this in an array
   for(var i = 0; i < storeHours.length; i++) {
-    for(var j = 0; j < allStores.length; j++) {
-      subtotal += allStores[j].cookiesPurchasedPerHour[i];
+    for(var j = 0; j < Store.allStores.length; j++) {
+      subtotal += Store.allStores[j].cookiesPurchasedPerHour[i];
     }
     totalCookiesPerHour[i] = subtotal;
     subtotal = 0;
@@ -111,7 +110,6 @@ Store.generateHourlyTotals = function () {
 
   // Adding another td so the table border is a solid box.
   tdEl = document.createElement('td');
-  // tdEl.textContent = ' ';
   tdEl.textContent = subtotal;
   trEl.appendChild(tdEl);
 };
@@ -127,42 +125,35 @@ Store.addNewStore = function(event) {
   var newStore = new Store(newName, newMinCust, newMaxCust, newAvgCookieSale);
   newStore.calculateCookiesPerHour();
   newStore.calculateTotalCookiesSold();
-  allStores.push(newStore);
 
   salesTable.textContent = '';
   Store.renderHeader();
 
-  for(var i = 0; i < allStores.length; i++) {
-    allStores[i].renderTable();
+  for(var i = 0; i < Store.allStores.length; i++) {
+    Store.allStores[i].renderTable();
   }
   Store.generateHourlyTotals();
 };
 
-
 var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
 firstAndPike.calculateCookiesPerHour();
 firstAndPike.calculateTotalCookiesSold();
-allStores.push(firstAndPike);
 
 var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
 seaTacAirport.calculateCookiesPerHour();
 seaTacAirport.calculateTotalCookiesSold();
-allStores.push(seaTacAirport);
 
 var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
 seattleCenter.calculateCookiesPerHour();
 seattleCenter.calculateTotalCookiesSold();
-allStores.push(seattleCenter);
 
 var capitalHill = new Store('Capital Hill', 20, 38, 2.3);
 capitalHill.calculateCookiesPerHour();
 capitalHill.calculateTotalCookiesSold();
-allStores.push(capitalHill);
 
 var alki = new Store('Alki', 2, 16, 4.6);
 alki.calculateCookiesPerHour();
 alki.calculateTotalCookiesSold();
-allStores.push(alki);
 
 // Render the table data
 Store.renderHeader();
