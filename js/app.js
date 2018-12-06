@@ -101,6 +101,9 @@ Store.generateHourlyTotals = function () {
     subtotal = 0;
   }
 
+  // Access each element in totalCookiesPerHour array and set a table data cell with this
+  // value.  Add table data cell to the table row element.  Calculate the total number of
+  // cookies per hour.
   for(i = 0; i < totalCookiesPerHour.length; i++) {
     tdEl = document.createElement('td');
     tdEl.textContent = totalCookiesPerHour[i];
@@ -108,27 +111,31 @@ Store.generateHourlyTotals = function () {
     subtotal += totalCookiesPerHour[i];
   }
 
-  // Adding another td so the table border is a solid box.
+  // Adding another td element setting the content to the grand total.
   tdEl = document.createElement('td');
   tdEl.textContent = subtotal;
   trEl.appendChild(tdEl);
 };
 
+// The callback function used by event listener.
 Store.addNewStore = function(event) {
+  // When form is submitted, the browser automatically reloads the page.  
+  // Must do a event.preventDefault() to override this
   event.preventDefault();
 
+  // Access data from event.
   var newName = event.target.storename.value;
-  var newMinCust = event.target.storemincust.value;
-  var newMaxCust = event.target.storemaxcust.value;
-  var newAvgCookieSale = event.target.storeavgcookiesale.value;
+  var newMinCust = parseInt(event.target.storemincust.value);
+  var newMaxCust = parseInt(event.target.storemaxcust.value);
+  var newAvgCookieSale = parseFloat(event.target.storeavgcookiesale.value);
 
   var newStore = new Store(newName, newMinCust, newMaxCust, newAvgCookieSale);
   newStore.calculateCookiesPerHour();
   newStore.calculateTotalCookiesSold();
 
+  // Clears the content of table element and renders it to include all store objects and totals.
   salesTable.textContent = '';
   Store.renderHeader();
-
   for(var i = 0; i < Store.allStores.length; i++) {
     Store.allStores[i].renderTable();
   }
@@ -155,7 +162,7 @@ var alki = new Store('Alki', 2, 16, 4.6);
 alki.calculateCookiesPerHour();
 alki.calculateTotalCookiesSold();
 
-// Render the table data
+// Render the table 
 Store.renderHeader();
 firstAndPike.renderTable();
 seaTacAirport.renderTable();

@@ -76,9 +76,6 @@ li {
   background-color: lightsalmon;
   height: 115px;
 }
-.report-title {
-
-}
 .ul-location {
   list-style: square;
   font-size: 20px;
@@ -138,6 +135,7 @@ footer {
 #right-footer h3 {
   padding-left: 165px;
 }
+
 /*   table
 --------------------------------------------*/
 table {
@@ -182,4 +180,16 @@ tr {
 tr:nth-child(even) {
   background-color: #ddd9d9;
 }
-
+form input {
+  font-size: 15px;
+  height: 25px;
+  margin-right: 25px;
+}
+#mincust, #maxcust, #avgcookiesale{
+  width: 50px;
+}
+button {
+  height: 30px;
+  background-color: rgb(101, 144, 187);
+  border-radius: 12px;
+}

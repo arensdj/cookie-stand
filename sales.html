@@ -15,18 +15,17 @@
           <input id="name" type="text" name="storename" required/>
 
           <label for="mincust">Minimum Customers</label>
-          <input id="mincust" type="number" name="storemincust" required/>
+          <input id="mincust" type="number" min="1" name="storemincust" required/>
 
           <label for="maxcust">Maximum Customers</label>
-          <input id="maxcust" type="number" name="storemaxcust" required/>
+          <input id="maxcust" type="number" min="1" name="storemaxcust" required/>
 
           <label for="avgcookiesale">Average Cookie Sale</label>
-          <input id="avgcookiesale" type="number" name="storeavgcookiesale" required/>
+          <input id="avgcookiesale" type="number" min="1" step="0.1" name="storeavgcookiesale" />
 
-          <button>Add a Store</button>        
+          <button class="round">Add a Store</button>        
         </fieldset> 
     </form>
-
     <table id="sales-table"></table>
     <script src="js/app.js"></script>
   </body>
