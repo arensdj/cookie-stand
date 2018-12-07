@@ -35,6 +35,8 @@ function Store(name, minCust, maxCust, avgCookieSale) {
   };
 }
 
+// This method is 'prototype' because it is accessing the member properties of the object
+// constructor using contextual 'this'.
 Store.prototype.renderTable = function() {
   // Create tr element
   var trEl = document.createElement('tr');
@@ -117,10 +119,39 @@ Store.generateHourlyTotals = function () {
   trEl.appendChild(tdEl);
 };
 
-// The callback function used by event listener.
+Store.renderStaffHeader = function () {
+  var headerRow = document.createElement('tr');
+
+  // Create a table header element, give it content and append to the header row.
+  var thEl = document.createElement('th');
+  thEl.textContent = '                 ';
+  headerRow.appendChild(thEl);
+
+  for(var i = 0; i < storeHours.length; i++) {
+    // Create a table header element, give it content and appeand to the header row
+    thEl = document.createElement('th');
+    thEl.textContent = storeHours[i];
+    headerRow.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';
+  headerRow.appendChild(thEl);
+
+  // Append header row to sales table
+  salesTable.append(headerRow);
+
+  //Add another row that contains number of cookies per store followed by number of staff
+};
+
+Store.generateStaffTotals = function() {
+
+};
+
+// The callback function used by event listener.  This is accessible from the object 
+// constructor, but it is not a member method.  This has less memory usage.
 Store.addNewStore = function(event) {
   // When form is submitted, the browser automatically reloads the page.  
-  // Must do a event.preventDefault() to override this
+  // Must do a event.preventDefault() to override this so you don't loose everything on the page.
   event.preventDefault();
 
   // Access data from event.
