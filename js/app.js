@@ -6,6 +6,7 @@ var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', 
 // The sales table on html
 var salesTable = document.getElementById('sales-table');
 var salesForm = document.getElementById('sales-form');
+var staffTable = document.getElementById('staff-table');
 
 // Array that contains all of the Store objects 
 Store.allStores = [];
@@ -18,13 +19,17 @@ function Store(name, minCust, maxCust, avgCookieSale) {
   this.avgCookieSale = avgCookieSale;
   this.cookiesPurchasedPerHour = [];
   this.totalCookiesSold = 0;
+  this.staffCountPerHour = []; //new
+  // this.randomNumCustomers = 0; //new
   Store.allStores.push(this);
   this.generateRandNumCustomers = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
   };
   this.calculateCookiesPerHour = function() {
     for(var i = 0; i < storeHours.length; i++) {
+      // this.randomNumCustomers = this.generateRandNumCustomers();
       var cookiesPerHour = Math.floor(this.avgCookieSale * this.generateRandNumCustomers());
+      // var cookiesPerHour = Math.floor(this.avgCookieSale * this.randomNumCustomers);
       this.cookiesPurchasedPerHour[i] = cookiesPerHour;
     }
   };
@@ -119,6 +124,8 @@ Store.generateHourlyTotals = function () {
   trEl.appendChild(tdEl);
 };
 
+// new
+// Creates the header row with the proper column names and appends to staff table
 Store.renderStaffHeader = function () {
   var headerRow = document.createElement('tr');
 
@@ -133,18 +140,56 @@ Store.renderStaffHeader = function () {
     thEl.textContent = storeHours[i];
     headerRow.appendChild(thEl);
   }
-  thEl = document.createElement('th');
-  thEl.textContent = 'Daily Location Total';
-  headerRow.appendChild(thEl);
 
   // Append header row to sales table
-  salesTable.append(headerRow);
-
-  //Add another row that contains number of cookies per store followed by number of staff
+  staffTable.append(headerRow);
 };
 
-Store.generateStaffTotals = function() {
+// new
+// Calculates number of staff needed per hour.  There must be at least 40 customers per hour.
+Store.prototype.calculateStaffPerHour = function() {
+  // this.cookiesPurchasedPerHour
+  // var staffCounterPerHour = [];
+  var tmpCount = 0;
+  var numberCustomersPerHour = 0;
+  // var subtotal = 0;
+  for(var i = 0; i < storeHours.length; i++) {
+    // for(var j = 0; j < Store.allStores.length; j++) {
+    // subtotal = Store.allStores[j].cookiesPurchasedPerHour[i];
+    numberCustomersPerHour = Math.floor(this.cookiesPurchasedPerHour[i] / this.avgCookieSale);
+    if(numberCustomersPerHour > 40) {
+      var remainder = numberCustomersPerHour % 40;
+      tmpCount = numberCustomersPerHour - remainder;
 
+      if((tmpCount / 20) > 1) {
+        this.staffCountPerHour[i] = (tmpCount / 20);
+      } else {
+        this.staffCountPerHour[i] = 0;
+      }
+    } else {
+      this.staffCountPerHour[i] = 0;
+    }
+    // }
+  }
+};
+
+// new
+Store.prototype.generateHourlyStaffTotal = function () {
+  // Create td element and add to td element.  Access each element in staffCountPerhours array.
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.name;
+  trEl.appendChild(tdEl);
+  staffTable.append(trEl);
+
+  for(var i = 0; i < this.staffCountPerHour.length; i++) {
+    // for(j = 0; j < Store.allStores.length; j++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.staffCountPerHour[i];
+    trEl.appendChild(tdEl);
+    // }
+  }  
+  // staffTable.append(trEl);
 };
 
 // The callback function used by event listener.  This is accessible from the object 
@@ -176,22 +221,27 @@ Store.addNewStore = function(event) {
 var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
 firstAndPike.calculateCookiesPerHour();
 firstAndPike.calculateTotalCookiesSold();
+firstAndPike.calculateStaffPerHour(); //new
 
 var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
 seaTacAirport.calculateCookiesPerHour();
 seaTacAirport.calculateTotalCookiesSold();
+seaTacAirport.calculateStaffPerHour();
 
 var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
 seattleCenter.calculateCookiesPerHour();
 seattleCenter.calculateTotalCookiesSold();
+seattleCenter.calculateStaffPerHour();
 
 var capitalHill = new Store('Capital Hill', 20, 38, 2.3);
 capitalHill.calculateCookiesPerHour();
 capitalHill.calculateTotalCookiesSold();
+capitalHill.calculateStaffPerHour();
 
 var alki = new Store('Alki', 2, 16, 4.6);
 alki.calculateCookiesPerHour();
 alki.calculateTotalCookiesSold();
+alki.calculateStaffPerHour();
 
 // Render the table 
 Store.renderHeader();
@@ -201,5 +251,13 @@ seattleCenter.renderTable();
 capitalHill.renderTable();
 alki.renderTable();
 Store.generateHourlyTotals();
+
+// Render the staff table
+Store.renderStaffHeader();
+firstAndPike.generateHourlyStaffTotal();
+seaTacAirport.generateHourlyStaffTotal();
+seattleCenter.generateHourlyStaffTotal();
+capitalHill.generateHourlyStaffTotal();
+alki.generateHourlyStaffTotal();
 
 salesForm.addEventListener('submit', Store.addNewStore);
