@@ -90,7 +90,6 @@ nav ul li {
   margin-left: 5px;
 }
 .content-wrap {
-  /* max-width: 950px; */
   margin: 0 auto;
   padding-left: 20px;
   overflow: hidden;
@@ -131,7 +130,6 @@ nav ul li {
 .family-img {
   height: 400px;
   width: 650px;
-  /* float: left; */
   margin-right: 30px;
   margin-left: 100px;
   padding-left: 200px;
