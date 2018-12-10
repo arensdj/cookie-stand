@@ -3,15 +3,18 @@
 body {
   background-color: lightgoldenrodyellow;
 }
-
+header {
+  padding-bottom: 5px;
+}
 h1 {
   font-size: 40px;
   color: brown;
   text-align: center;
   background-color: lightsalmon;
   margin-top: 5px;
+  margin-bottom: 5px;
   padding-top: 25px;
-  height: 75px;
+  height: 5px;
 }
 h2 {
   color: brown;
@@ -25,18 +28,23 @@ h3 p {
   margin-left: 5px;
 }
 .main-title {
-  /* font-family: 'Corben', cursive; */
   font-family: 'Allura', cursive;
   font-size: 70px;
-  /* text-align: center; */
   padding-top: 1px;
-  padding-left: 5px;
-  padding-bottom: 25px;
-  /* margin-bottom: 10px; */
-  /* margin-top: 0px; */
-  /* background-color: lightsalmon; */
-  height: 5px;
-  /* border: 2px dotted blue; */
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+  font-weight: bold;
+  height: 80px;
+    /* border: 2px dotted blue; */
+}
+#staff-title {
+  font-family: 'Allura', cursive;
+  font-size: 70px;
+  margin-top: 10px;
+  padding-top: 15px;
+  font-weight: bold;
+  height: 100px;
+  border: 2px solid purple;
 }
 section img {
   margin-left: 150px;
@@ -76,79 +84,55 @@ li {
   margin-left: 75px;
   margin-top: 2px;
 }
-nav {
-  /* border: 2px dotted black; */
-}
 nav ul li {
   font-family: Verdena;
   display: inline-block;
-  /* padding-top: 10px; */
-  /* padding-left: 15px; */
   margin-left: 5px;
-  /* border: 2px solid black; */
-  /* padding-right: 0px; */
 }
 .content-wrap {
-  /* max-width: 950px; */
   margin: 0 auto;
-  padding-left: 100px;
+  padding-left: 20px;
   overflow: hidden;
-  /* border: 2px solid green; */
   background-color: lightsalmon;
-
 }
 .image-wrap {
-    max-width: 950px;
-    margin: 0 auto;
-    padding-top: 25px;
-    padding-left: 120px;
-    overflow: hidden;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-top: 25px;
+  padding-left: 120px;
+  overflow: hidden;
 }
 #fish-img {
-  /* height: 200px;
-  width: 300px; */
-  height: 150px;
+  height: 125px;
   width: 350px;
-  /* float: left; */
-  padding-top: 10px;
+  padding-top: 5px;
   padding-right: 20px;
   margin-right: 30px;
+  margin-bottom: 5px;
   overflow: auto;
   display: block;
   margin: 0 auto;
 }
 .merchandise-img { 
-  /* height: 250px; */
   width: 300px;
-  padding-top: 10px;
-  padding-right: 10px;
-  margin-right: 20px;
   overflow: auto;
-  /* display: block; */
+  border: 2px solid gray;
   margin: 0 auto;
 }
 #merch-desc li {
   padding-left: 5px;
   padding-right: 100px;
   margin-right: 100px;
-  /* border: 2px solid red; */
 }
 #merch-desc li:last-child {
-  margin-left: 5px;
+  margin-left: 1px;
 }
 .family-img {
   height: 400px;
   width: 650px;
-  /* float: left; */
   margin-right: 30px;
   margin-left: 100px;
   padding-left: 200px;
-  /* border: 2px solid red; */
-  /* float: left;
-  margin-right: 10px;
-  /* overflow: auto;
-  display: block;
-  margin: 0 auto;   */
 }
 .magnet-img {
   height: 150px;
@@ -173,9 +157,6 @@ nav ul li {
   font-weight: bold;
   margin-bottom: 1px;
   color: brown;
-}
-nav .class {
-  padding-left: 100px;
 }
 /* header and footer
 --------------------------------------------*/
@@ -220,10 +201,11 @@ footer {
 #right-footer h3 {
   padding-left: 125px;
 }
-
 /*   table
 --------------------------------------------*/
 table {
+  margin-top: 20px;
+  margin-left: 1px;
   border: 2px solid black;
   border-collapse: collapse;
   border-bottom: 2px solid black;
@@ -251,11 +233,11 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 table:first-child {
-  margin-left: 40px;
+  margin-left: 5px;
   padding-right: 50px;
 }
 tr:first-child {
-  margin-left: 40px;
+  margin-left: 5px;
   padding-right: 50px;
 }
 tr {
@@ -265,8 +247,11 @@ tr {
 tr:nth-child(even) {
   background-color: #ddd9d9;
 }
-/*  table
+/*  form
 --------------------------------------------*/
+fieldset {
+  margin-top: 10px;
+}
 form input {
   font-size: 15px;
   height: 25px;
